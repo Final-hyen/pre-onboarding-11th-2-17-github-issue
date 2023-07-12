@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import UserContext from './contexts/GitHubContext';
 import GetPage from './pages/GetPage.jsx';
+import DetailPage from './pages/DetailPage.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<GetPage />} />
+            <Route path="/:issueNumber" element={<DetailPage />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

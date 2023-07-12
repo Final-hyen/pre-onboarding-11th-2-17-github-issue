@@ -26,7 +26,7 @@ export default function GetPage() {
     <>
       {issues.map(issue => {
         return (
-          <Link to={`/detail/${issue.number}`} key={issue.id}>
+          <Link to={`/${issue.number}`} key={issue.id}>
             <ul>
               <li>{issue.number}</li>
               <li>{issue.title}</li>
