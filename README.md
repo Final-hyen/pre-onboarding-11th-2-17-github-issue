@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# pre-onboarding-11th-3-17th (Github API Project)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+| 맴버   | 특이사항 |
+| ------ | -------- |
+| 김수환 |          |
+| 김하연 |          |
+| 전서연 |          |
+| 최종현 |          |
+| 변성진 |          |
+| 윤지영 |          |
 
-## Available Scripts
+#### 폴더 구조
 
-In the project directory, you can run:
+```bash
+src/
+|--components/
+    |--IssueList/
+    |--IssueDetail/
+|--contexts/
+    |--GithubContext/
+|--services/
+    |--githubServices
+|--utils/
+    |--apiUtils
+|--App.tsx
+|--index.tsx
+```
 
-### `npm start`
+`components/`: 재사용 가능한 UI 컴포넌트들을 담는 폴더입니다. 각 컴포넌트는 해당 폴더 내에 `.tsx` 파일로 구현되고, 필요한 경우 `.css` 파일로 스타일을 분리하여 관리할 수 있습니다. 예를 들어, IssueList 컴포넌트는 IssueList.tsx와 IssueList.css 파일로 구성될 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`contexts/`: 애플리케이션의 전역 상태와 로직을 관리하기 위한 `Context` 관련 파일들을 담는 폴더입니다. `GitHubContext` 폴더는 `GitHub API`와 관련된 상태와 함수를 관리하는 `Context`를 구현합니다. `GitHubContext.tsx` 파일은 `GitHub API` 요청을 위한 `Context Provider` 컴포넌트를 구현하고, `useGitHub.ts` 파일은 `Context`를 사용하여 `GitHub API`와 관련된 로직을 처리하는 `Custom Hook`을 구현합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`services/`: `GitHub API`와의 데이터 통신을 담당하는 서비스 관련 파일들을 담는 폴더입니다. `githubService.ts` 파일은 `GitHub API`와의 통신을 처리하는 함수들을 포함합니다.
 
-### `npm test`
+`utils/`: 유틸리티 함수, 헬퍼 함수, 상수 등의 유틸리티 관련 파일들을 담는 폴더입니다. `apiUtils.ts` 파일은 `API` 호출에 관련된 유틸리티 함수들을 포함할 수 있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> **Redux를 사용하지 않은 이유?**  
+> middleware 관여도가 낮다고 판단 Context API로 api를 연결해야하는 상황이기 때문에 Context API면 충분하다고 판단
