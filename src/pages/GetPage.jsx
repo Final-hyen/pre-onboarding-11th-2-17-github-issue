@@ -12,9 +12,12 @@ export default function GetPage() {
   const value = useContext(UserContext);
   useEffect(() => {
     axios
-      .get(`${baseUrl}/repos/${value.owner}/${value.repo}/issues`, {
-        headers: { Authorization: `token ${key}` },
-      })
+      .get(
+        `${baseUrl}/repos/${value.owner}/${value.repo}/issues?sort=comments`,
+        {
+          headers: { Authorization: `token ${key}` },
+        },
+      )
       .then(res => {
         setIssues(res.data);
       })
