@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import UserContext from '../contexts/GitHubContext';
+import { IssueItem, AdItem } from './IssuePage.jsx';
 
 export default function GetPage() {
   const [issues, setIssues] = useState([]);
@@ -24,18 +24,15 @@ export default function GetPage() {
   }, []);
   return (
     <>
-      {issues.map(issue => {
+      {issues.map((issue, i) => {
         return (
-          <Link to={`/${issue.number}`} key={issue.id}>
-            <ul>
-              <li>{issue.number}</li>
-              <li>{issue.title}</li>
-              <li>{issue.user.login}</li>
-              <li>{issue.created_at}</li>
-              <li>{issue.comments}</li>
-            </ul>
-            <hr />
-          </Link>
+          <>
+            {(i + 1) % 5 === 0 ? (
+              <AdItem />
+            ) : (
+              <IssueItem issue={issue} key={issue.number} />
+            )}
+          </>
         );
       })}
     </>
